@@ -6,3 +6,11 @@ body {
 h1 {
   text-align: center;
 }
+
+a {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+}
