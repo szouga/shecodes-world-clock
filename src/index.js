@@ -24,6 +24,19 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]",
     );
   }
+
+  //Reykjavik, Iceland
+  let reykjavikElement = document.querySelector("#reykjavik");
+  if (reykjavikElement) {
+    let reykjavikDateElement = reykjavikElement.querySelector(".date");
+    let reykjavikTimeElement = reykjavikElement.querySelector(".time");
+    let reykjavikTime = moment().tz("Atlantic/Reykjavik");
+
+    reykjavikDateElement.innerHTML = reykjavikTime.format("MMMM Do YYYY");
+    reykjavikTimeElement.innerHTML = reykjavikTime.format(
+      "h:mm:ss [<small>]A[</small>]",
+    );
+  }
 }
 
 function updateCity(event) {
@@ -36,7 +49,7 @@ function updateCity(event) {
   let cityTime = moment().tz(cityTimeZone);
   //console.log(cityTime.format("MMMM Do YYYY"));
   let citiesElement = document.querySelector("#cities");
-  citiesElement.innerHTML = `<div class="city" id="paris">
+  citiesElement.innerHTML = `<div class="city">
         <div>
           <h2>${cityName}</h2>
           <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
@@ -44,7 +57,9 @@ function updateCity(event) {
         <div class="time">${cityTime.format("h:mm:ss")}
         <small>${cityTime.format("A")}</small>
         </div>
-      </div>`;
+      </div>
+      <a href="/">Go back to all cities</a>
+      `;
 }
 
 updateTime();
